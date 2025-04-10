@@ -1,20 +1,23 @@
+import os
+import logging
 from pyrogram import Client, idle
-from config.config import API_ID, API_HASH, BOT_TOKEN
-from bot.all_features import init_handlers
-import asyncio
-from webserver import run as start_webserver
+from modules import all_features
+from modules.keep_alive import keep_alive
 
-app = Client("anime_lord_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+logging.basicConfig(level=logging.INFO)
 
-init_handlers(app)  # হ্যান্ডলার আগে যুক্ত করো
+app = Client(
+    "anime_lord_bot",
+    api_id=int(os.environ.get("API_ID")),
+    api_hash=os.environ.get("API_HASH"),
+    bot_token=os.environ.get("BOT_TOKEN")
+)
 
-async def main():
-    await app.start()
-    print("✅ Bot Started")
-    await start_webserver()
-    await idle()
-    await app.stop()
-    print("🛑 Bot Stopped")
+all_features.register_handlers(app)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    keep_alive()
+    app.start()
+    logging.info("Bot Started")
+    idle()
+    app.stop()
