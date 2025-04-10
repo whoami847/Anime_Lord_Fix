@@ -1,7 +1,7 @@
 import os
 
-API_ID = int(os.getenv("API_ID", "12345"))
-API_HASH = os.getenv("API_HASH", "your_api_hash")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "your_bot_token")
-ADMIN_USERS = [int(x) for x in os.getenv("ADMIN_USERS", "").split()]
+API_ID = int(os.getenv("API_ID", "21463947"))
+API_HASH = os.getenv("API_HASH", "39d6a5245f670ee68c507e274b3c7b3d")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7327021662:AAGYxW11fymRBqnDGUUTCLfP9FG0zrv1jKs")
+ADMIN_USERS = [int(x) for x in os.getenv("ADMIN_USERS", "7282066033").split()]
 FORCE_SUB_CHANNEL = os.getenv("FORCE_SUB_CHANNEL", None)
