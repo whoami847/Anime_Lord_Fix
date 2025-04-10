@@ -1,3 +1,4 @@
-pyrogram
-tgcrypto
+pyrogram==2.0.106
+tgcrypto==1.2.5
+flask==2.3.3
 aiohttp
